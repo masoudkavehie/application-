@@ -1,18 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: application-from-scratch
+  name: application-1
 spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  project: default
+  project: project-1
   source:
-     helm:
-      releaseName: application-from-helm
-      parameters:
-        - name: "replicaCount"
-          value: "3"
      path: helm/nginx
      repoURL: https://github.com/masoudkavehie/application-.git
      targetRevision: main
